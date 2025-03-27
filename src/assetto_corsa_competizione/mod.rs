@@ -7,7 +7,7 @@ pub use crate::assetto_corsa_competizione::data::{
 use crate::assetto_corsa_competizione::shared_memory_data::{
     PageFileGraphics, PageFilePhysics, PageFileStatic,
 };
-use crate::{Moment, RacingFlags, Simetry};
+use crate::{Moment, Pedals, RacingFlags, Simetry};
 use std::borrow::Cow;
 use uom::si::angular_velocity::revolution_per_minute;
 use uom::si::f64::{AngularVelocity, Velocity};
@@ -136,5 +136,13 @@ impl Moment for SimState {
 
     fn is_starter_on(&self) -> Option<bool> {
         Some(self.physics.starter_engine_on)
+    }
+
+    fn pedals(&self) -> Option<Pedals> {
+        Some(Pedals {
+            throttle: self.physics.gas as f64,
+            brake: self.physics.brake as f64,
+            clutch: self.physics.clutch as f64,
+        })
     }
 }
