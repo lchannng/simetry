@@ -1,26 +1,44 @@
-use bitmask::bitmask;
+use bitflags::bitflags;
 
-bitmask! {
-    /// Description of camera state.
-    pub mask CameraState: u16 where
-    /// States that are part of the camera.
-    flags CameraFlag {
-        IsSessionScreen       = 0x0001,
-        IsScenicActive        = 0x0002,
+bitflags! {
+    /// Camera state flags container.
+    #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+    pub struct CameraState: u16 {
+        /// States that are part of the camera.
+        ///
+        /// - IsSessionScreen = 0x0001
+        const IS_SESSION_SCREEN       = 0x0001;
+
+        /// - IsScenicActive = 0x0002
+        const IS_SCENIC_ACTIVE        = 0x0002;
+
         /// Can be set in [`commands::camera::set_state`].
-        CamToolActive         = 0x0004,
+        /// - CamToolActive = 0x0004
+        const CAM_TOOL_ACTIVE         = 0x0004;
+
         /// Can be set in [`commands::camera::set_state`].
-        UIHidden              = 0x0008,
+        /// - UIHidden = 0x0008
+        const UI_HIDDEN              = 0x0008;
+
         /// Can be set in [`commands::camera::set_state`].
-        UseAutoShotSelection  = 0x0010,
+        /// - UseAutoShotSelection = 0x0010
+        const USE_AUTO_SHOT_SELECTION  = 0x0010;
+
         /// Can be set in [`commands::camera::set_state`].
-        UseTemporaryEdits     = 0x0020,
+        /// - UseTemporaryEdits = 0x0020
+        const USE_TEMPORARY_EDITS     = 0x0020;
+
         /// Can be set in [`commands::camera::set_state`].
-        UseKeyAcceleration    = 0x0040,
+        /// - UseKeyAcceleration = 0x0040
+        const USE_KEY_ACCELERATION    = 0x0040;
+
         /// Can be set in [`commands::camera::set_state`].
-        UseKey10xAcceleration = 0x0080,
+        /// - UseKey10xAcceleration = 0x0080
+        const USE_KEY_10X_ACCELERATION = 0x0080;
+
         /// Can be set in [`commands::camera::set_state`].
-        UseMouseAimMode       = 0x0100,
+        /// - UseMouseAimMode = 0x0100
+        const USE_MOUSE_AIM_MODE       = 0x0100;
     }
 }
 

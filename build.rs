@@ -1,8 +1,8 @@
-use std::env;
-use std::path::PathBuf;
-
 fn main() {
-    #[cfg(feature = "with_r3e")] {
+    #[cfg(feature = "with_r3e")]
+    {
+        use std::env;
+        use std::path::PathBuf;
         println!("cargo:rerun-if-changed=src/raceroom_racing_experience/r3e.h");
 
         let bindings = bindgen::Builder::default()
@@ -20,7 +20,10 @@ fn main() {
             .expect("Couldn't write bindings!");
     }
 
-    #[cfg(feature = "with_truck_simulator")] {
+    #[cfg(feature = "with_truck_simulator")]
+    {
+        use std::env;
+        use std::path::PathBuf;
         let bindings = bindgen::Builder::default()
             .header("src/truck_simulator/scs-sdk-plugin/scssdk.h")
             .header("src/truck_simulator/scs-sdk-plugin/scs-telemetry-common.hpp")

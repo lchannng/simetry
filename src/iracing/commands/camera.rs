@@ -17,5 +17,5 @@ pub fn switch_to_car_number(car_number: u16, group: u16, camera: u16) {
 
 /// Sets the state of the camera.
 pub fn set_state(camera_state: CameraState) {
-    BROADCAST_CAM_SET_STATE.run(*camera_state);
+    BROADCAST_CAM_SET_STATE.run(camera_state.bits());
 }

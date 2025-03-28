@@ -19,7 +19,7 @@ pub use car_positions::CarPositions;
 pub use client::Client;
 pub use constants::{UNLIMITED_LAPS, UNLIMITED_TIME};
 pub use disk_client::DiskClient;
-pub use flags::{CameraFlag, CameraState};
+pub use flags::CameraState;
 pub use header::{DiskSubHeader, Header, VarHeader, VarHeaders, VarType};
 pub use sim_state::SimState;
 pub use var_data::{Value, VarData};
