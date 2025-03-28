@@ -143,6 +143,14 @@ pub trait Moment {
         None
     }
 
+    fn is_vehicle_tc_active(&self) -> Option<bool> {
+        None
+    }
+
+    fn is_vehicle_abs_active(&self) -> Option<bool> {
+        None
+    }
+
     /// Check if there is a vehicle to the left of the driver.
     fn is_vehicle_left(&self) -> Option<bool> {
         None

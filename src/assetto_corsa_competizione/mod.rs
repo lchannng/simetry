@@ -102,6 +102,14 @@ impl Moment for SimState {
         Some(self.graphics.is_in_pit_lane)
     }
 
+    fn is_vehicle_tc_active(&self) -> Option<bool> {
+        Some(self.physics.tc > 0.0)
+    }
+
+    fn is_vehicle_abs_active(&self) -> Option<bool> {
+        Some(self.physics.abs > 0.0)
+    }
+
     fn flags(&self) -> Option<RacingFlags> {
         let mut flags = RacingFlags::default();
         match self.graphics.flag {
